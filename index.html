@@ -1,0 +1,77 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/main2.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+    <header>
+      <h1 align="center"> ABC'S BANK</h1>
+  <h2 align="center"> Welcome</h2>
+  <p align="center"><input  id="tbInput" class="PINtext" type="password" placeholder="Enter Account Number" maxlength="16" readonly/></p>
+  
+    <div id="VirtualKey" align="center">
+      
+      <input class="calcBtn" id="btn1" type="button" onclick="input(this);" value="1" />
+      <input class="calcBtn" id="btn2" type="button" onclick="input(this);" value="2" />
+      <input class="calcBtn" id="btn3" type="button" onclick="input(this);" value="3"/>
+      <br />
+      <input class="calcBtn" id="btn4" type="button" onclick="input(this);" value="4"/>
+      <input class="calcBtn" id="btn5" type="button" onclick="input(this);" value="5"/>
+      <input class="calcBtn" id="btn6" type="button" onclick="input(this);" value="6"/>
+      <br />
+      <input class="calcBtn" id="btn7" type="button" onclick="input(this);" value="7"/>
+      <input class="calcBtn" id="btn8" type="button" onclick="input(this);" value="8"/>
+      <input class="calcBtn" id="btn9" type="button" onclick="input(this);" value="9"/>
+      <br />
+      <input class="calcBtn" id="btnEnt" type="button" onclick="ent()" style="color:green" value="Enter"/>
+      <input class="calcBtn" id="btn0" type="button" onclick="input(this)" value="0"/>
+      <input class="calcBtn" id="btnDel" type="button" style="color:red" value="Delete" onclick="del();" />
+    </header>
+      
+      <script>
+    var users = {
+      'accountNumber': 8861136315,
+      'accountPin': 1234,
+      'chequingBalance': 2000,
+      'savingsBalance': 5000,
+      'chequingTransactions': [[Date(),0,0,2000]],
+      'savingsTransactions': [[Date(),0,0,5000]]
+    };
+    console.log(users)
+    updateSessionStorage(users);
+  
+  function insertCard(){
+    window.location="PINInput.html"
+  }
+  
+  function input(e) {
+      var tbInput = document.getElementById("tbInput");
+      if (tbInput.value.length < 10) {
+      tbInput.value=tbInput.value + e.value;
+    }
+  }
+  
+  function del() {
+    var tbInput = document.getElementById("tbInput");
+    tbInput.value = tbInput.value.substr(0, tbInput.value.length-1);
+  }
+  
+  function ent() {
+    var PIN="8861136315";
+    var str1=document.getElementById("tbInput").value;
+    if (str1==PIN) {
+      window.location="PINInput.html";
+     } else {
+       alert("That account number does not exist!");
+       document.getElementById("tbInput").value ="";
+     }
+  }
+  </script>
+      
+      </body>
+  </html>
+  
+  
